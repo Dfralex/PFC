@@ -82,7 +82,7 @@ function play(playerChoice) {
     // }, 500);
 
     //changer les images 
-    const images = ["/images/pierre.png", "/images/ciseaux.png", "/images/feuille.png"]
+    const images = ["./images/pierre.png", "./images/ciseaux.png", "./images/feuille.png"]
     playerHand.src = images[playerChoice - 1]
     computerHand.src = images[computerChoice - 1]
 
