@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>PFC</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="score">score</div>
+            <div class="timer">crono</div>
+        </header>
+        <main>
+            <div class="hands">
+                <img id="player-hand" src="/images/pierre.png" alt="pierre" />
+                <img id="computer-hand" src="/images/pierre.png" alt="pierre" />
+            </div>
+            <div id="message"></div>
+            <div class="player-input">
+                    <button id="b1" onclick="clickRock()">
+                        <img src="/images/pierre.png" alt="pierre" />
+                    </button>
+                    <button id="b2" onclick="clickPaper()">
+                        <img src="/images/feuille.png" alt="feuille" /> 
+                    </button>
+                    <button id="b3" onclick="clickScissors()">
+                        <img src="/images/ciseaux.png" alt="ciseaux" />
+                    </button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

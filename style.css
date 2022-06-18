@@ -1,0 +1,172 @@
+* {
+ box-sizing: border-box;   
+}
+
+body {
+    margin: 0; /* desactive le style du navigateur */
+}
+
+
+
+.container {
+    /* background-color: pink; */
+    /* background: linear-gradient(to right, red, darkred); */
+    background: linear-gradient(0, red, blue);
+    overflow: hidden;
+    width: 300px;
+    height: 100vh; /* prend la hauteur de l'écran */
+    margin-left: auto; /* marge automatique */
+    margin-right: auto; /* marge automatique */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    animation: gradient-rotate 2s infinite;
+}
+
+@keyframes gradient-rotate {
+    0% {
+        background: linear-gradient(0, red, blue);
+    }
+    50% {
+        background: linear-gradient(180deg, red, blue);
+    }
+    100% {
+        background: linear-gradient(360deg, red, blue);
+    }
+}
+
+
+header {
+   height: 100px;
+   background-color: black;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 10px ;
+   box-shadow: 0px 2px 5px black;
+
+}
+
+main{
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;   
+}
+
+.score {
+    background-color: yellow;
+}
+
+.timer {
+    background-color: cyan;
+}
+
+.hands {
+    /* background-color: orange; */
+    display: flex;
+}
+.hands img {
+    width: 50%;
+}
+/* img { */
+    /* filter: drop-shadow(2px 2px 5px white); */
+/* } */
+
+#message {
+    /* background-color: pink; */
+    width: 100%;
+    height: 100px;
+    position: absolute;    
+    top: calc(50% - 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    font-family:Arial Black;
+    text-shadow: 2px 2px 10px black;
+    color: white;
+}
+
+.player-input {
+    
+     display: flex;
+     gap: 5px;
+     width: 100%; 
+}
+
+.player-input button {
+    flex: 1;
+    padding: 0;
+    /* width: 30%; */
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 1px solid silver;
+}
+
+.player-input button img {
+    width: 100%;
+    
+}
+
+
+/* #player-hand {
+} */
+
+
+#computer-hand {
+    /* retourner l'image  */
+    transform: scaleX(-1);
+}
+
+/* animation d'entrée (joueur) */
+.animation-start{
+    animation: start 2s ease;
+}
+
+
+/* animation d'entrée (ordinateur) */
+.animation-start-computer{
+    animation: start-computer 2s ease;
+}
+/* animation qui fait descendre la main */
+.animation-show{
+    animation: show 0.5s ease-in;
+    
+}
+@keyframes start {
+    from {
+        transform: translateX(-300px);
+    } 
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes start-computer {
+    from {
+        transform: scaleX(-1) translateX(-300px);
+    } 
+    to{
+        transform: scaleX(-1) translateX(0);
+    }
+}
+@keyframes show {
+    0% {
+      transform: translateY(0);  
+    }
+    75% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
