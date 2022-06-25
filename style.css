@@ -11,7 +11,8 @@ body {
 .container {
     /* background-color: pink; */
     /* background: linear-gradient(to right, red, darkred); */
-    background: linear-gradient(0, red, blue);
+    /* background: linear-gradient(135deg, hsl(0, 43%, 76%), hsl(0, 43%, 50%)); */
+    /* background: linear-gradient(135deg, hsl(60, 75%, 76%), hsl(60, 75%, 50%)); */
     overflow: hidden;
     width: 300px;
     height: 100vh; /* prend la hauteur de l'écran */
@@ -20,21 +21,7 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    animation: gradient-rotate 2s infinite;
 }
-
-@keyframes gradient-rotate {
-    0% {
-        background: linear-gradient(0, red, blue);
-    }
-    50% {
-        background: linear-gradient(180deg, red, blue);
-    }
-    100% {
-        background: linear-gradient(360deg, red, blue);
-    }
-}
-
 
 header {
    height: 100px;

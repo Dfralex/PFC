@@ -1,6 +1,6 @@
 const INPUT_PHASE = 0;
 const RESULT_PHASE = 1;
-let phase = INPUT_PHASE;
+let phase;
 
 
 
@@ -8,12 +8,14 @@ const ROCK = 1;
 const SCISSORS = 2;
 const PAPER = 3;
 
+const container = document.querySelector(".container");
 const playerHand = document.getElementById("player-hand");
 const computerHand = document.getElementById("computer-hand");
 const messageBox = document.getElementById("message");
 const b1 = document.getElementById("b1");
 const b2 = document.getElementById("b2");
 const b3 = document.getElementById("b3");
+setPhase(INPUT_PHASE)
 
 function setPhase(newPhase) {
     // si la phase actuel et la nouvelle phase sont identique arrêter la fonction 
@@ -31,6 +33,7 @@ function setPhase(newPhase) {
 
 // si on entre dans la phase de jeu
     if (newPhase === INPUT_PHASE) {
+        changeBackgroundColor("normal")
         b1.disabled = false
         b2.disabled = false
         b3.disabled = false
@@ -49,6 +52,22 @@ setTimeout(() => {
     playerHand.classList.remove("animation-start")
     computerHand.classList.remove("animation-start-computer")
 }, 2000);
+
+// fonctions 
+
+function changeBackgroundColor(color) {
+    if (color === "normal") { 
+        container.style.background =  "linear-gradient(135deg, hsl(44, 43%, 76%), hsl(44, 43%, 50%))";    
+    } else if (color === "green"){
+        container.style.background =  "linear-gradient(135deg, hsl(120, 43%, 76%), hsl(120, 43%, 50%))"; 
+    } else if (color === "red"){
+        container.style.background =  "linear-gradient(135deg, hsl(0, 43%, 76%), hsl(0, 43%, 50%))"; 
+    }  else if (color === "yellow"){
+        container.style.background =  "linear-gradient(135deg, hsl(60, 75%, 76%), hsl(60, 75%, 50%))"; 
+    }  else{
+        console.log("erreur:couleur inconnue",color);
+    }  
+}
 
 function showMessage(text) {
     messageBox.textContent = text
@@ -88,8 +107,10 @@ function play(playerChoice) {
 
     // égalité 
     if (playerChoice === computerChoice) {
+        changeBackgroundColor("yellow")
         showMessage("Egalité! ")
     }
+
 
 
     // victoire
@@ -98,6 +119,7 @@ function play(playerChoice) {
         (playerChoice === ROCK && computerChoice === SCISSORS) ||
         (playerChoice === PAPER && computerChoice === ROCK)
     ) {
+        changeBackgroundColor("green")
         showMessage("Victoire!")
     }
 
@@ -107,6 +129,7 @@ function play(playerChoice) {
         (playerChoice === SCISSORS && computerChoice === ROCK) ||
         (playerChoice === PAPER && computerChoice === SCISSORS)
     ) {
+        changeBackgroundColor("red")
         showMessage("Défaite…")
     }
     // repasser en phase de jeu après un délai 
